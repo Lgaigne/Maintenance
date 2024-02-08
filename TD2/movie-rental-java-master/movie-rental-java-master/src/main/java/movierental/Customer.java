@@ -26,12 +26,11 @@ public class Customer {
         String result = addHeader   ();
 
         for (Rental rental : rentals) {
-            double thisAmount = Rental.getThisAmount(rental);
-            frequentRenterPoints += addFrequentRenterPoints(rental);
+            frequentRenterPoints += frequentRenterPoints(rental);
 
             // show figures for this rental
-            result += Rental.showFigureForThisRental(rental, thisAmount);
-            totalAmount += thisAmount;
+            result += Rental.showFigureForThisRental(rental, Rental.getThisAmount(rental));
+            totalAmount += Rental.getThisAmount(rental);
         }
 
         // add footer lines
@@ -44,7 +43,7 @@ public class Customer {
         return "Rental Record for " + getName() + "\n";
     }
 
-    private int addFrequentRenterPoints(Rental rental) {
+    private int frequentRenterPoints(Rental rental) {
         // add bonus for a two day new release rental
         return 1 + Rental.getRentalFrequentRenterPoints(rental);
         }
