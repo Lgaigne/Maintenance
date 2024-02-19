@@ -1,6 +1,8 @@
 package movierental;
 import static junit.framework.Assert.assertEquals;
 import static junit.framework.Assert.assertNotNull;
+import static movierental.EnumPriceCode.NEW_RELEASE;
+import static movierental.EnumPriceCode.REGULAR;
 
 import org.junit.Test;
 
@@ -9,10 +11,10 @@ public class CustomerTest {
     @Test
     public void test() {
         Customer customer = new Customer("Bob");
-        customer.addRental(new Rental(new Movie("Jaws", Movie.REGULAR), 2));
-        customer.addRental(new Rental(new Movie("Golden Eye", Movie.REGULAR), 3));
-        customer.addRental(new Rental(new Movie("Short New", Movie.NEW_RELEASE), 1));
-        customer.addRental(new Rental(new Movie("Long New", Movie.NEW_RELEASE), 2));
+        customer.addRental(new Rental(new Movie("Jaws", REGULAR), 2));
+        customer.addRental(new Rental(new Movie("Golden Eye", REGULAR), 3));
+        customer.addRental(new Rental(new Movie("Short New", NEW_RELEASE), 1));
+        customer.addRental(new Rental(new Movie("Long New", NEW_RELEASE), 2));
         customer.addRental(new Rental(new Movie("Bambi", Movie.CHILDRENS), 3));
         customer.addRental(new Rental(new Movie("Toy Story", Movie.CHILDRENS), 4));
 
