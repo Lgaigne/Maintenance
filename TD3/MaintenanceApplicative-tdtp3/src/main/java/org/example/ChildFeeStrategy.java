@@ -9,6 +9,6 @@ public class ChildFeeStrategy {
         } else if (TicketType.FULL_DAY == ticketType) {
             return CHILD_PRICE_BASE * 0.5;
         }
-        return 0.0;
+        throw new RuntimeException("Ticket type is not supported");
     }
 }

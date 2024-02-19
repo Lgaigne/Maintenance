@@ -3,6 +3,8 @@ package org.example;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.Assertions.catchThrowable;
 import static org.junit.jupiter.api.Assertions.*;
 
 
@@ -64,6 +66,16 @@ class FeeCalculatorTest {
 
         //THEN
         assertEquals(50 , fee, "The fee is not correct");
+    }
+
+    @Test
+    public void test_ChildFeeStrategy_erreur_type_Ticket(){
+        Visitor visitor = new Visitor(10);
+
+        Throwable thrown = catchThrowable(() -> {
+            double actualFee =FeeCalculator.calculateFee(visitor,TicketType.WEEK);
+        });
+        assertThat(thrown).isInstanceOf(RuntimeException.class).hasMessage("Ticket type is not supported");
     }
 
 }
