@@ -1,9 +1,11 @@
-public class Voiture {
+public class Voiture extends Application {
     private String modele;
     private String couleur;
     private int vitesse;
-
-    public Voiture(String model, String color) {
+    private final int uniteVitesse = 10;
+    private final int vitesseMin = 0;
+    private final int vitesseMax = 130;
+    public Voiture(final String model, final String color) {
         this.modele = model;
         this.couleur = color;
         this.vitesse = 0;
@@ -14,8 +16,8 @@ public class Voiture {
     }
 
     public void accelerer() {
-        if (vitesse + 10 <= 120) {
-            vitesse += 10;
+        if (vitesse + uniteVitesse <= vitesseMax - uniteVitesse) {
+            vitesse += uniteVitesse;
             afficherDetails();
         } else {
             System.out.println("La vitesse maximale est atteinte.");
@@ -23,8 +25,8 @@ public class Voiture {
     }
 
     public void ralentir() {
-        if (vitesse - 10 >= 0) {
-            vitesse -= 10;
+        if (vitesse - uniteVitesse > vitesseMin) {
+            vitesse -= uniteVitesse;
             afficherDetails();
         } else {
             System.out.println("La voiture est déjà à l'arrêt.");

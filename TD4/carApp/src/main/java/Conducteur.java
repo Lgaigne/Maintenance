@@ -1,6 +1,7 @@
 public class Conducteur {
     private String nom;
-    private int age;
+    final int age = 18;
+
 
     public Conducteur(String name, int years) {
         this.nom = name;
