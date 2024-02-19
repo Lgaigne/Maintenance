@@ -1,4 +1,4 @@
-public class Car extends Application {
+public class Car {
     public static final int SPEED_MAX = 130;
     public static final int SPEED_MIN = 0;
     public static final int SPEED_UNITE = 10;

@@ -1,4 +1,4 @@
-public class Driver extends Application {
+public class Driver {
     private String nom;
     private int age;
     private final int majorite = 18;
