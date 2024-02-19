@@ -9,7 +9,7 @@ public class Driver {
         this.age = nombreAnnee;
     }
 
-    public boolean isAdult() {
+    public final boolean isAdult() {
         return age >= majorite;
     }
 
